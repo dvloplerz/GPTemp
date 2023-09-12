@@ -1,0 +1,9 @@
+Set nvidia gpu fan speed automatically associated with temperature.
+
+To get current gpu temp:
+    nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits
+
+To set gpu fan speed:
+    xhost si:localuser:root
+    sudo nvidia-settings -a "[gpu:0]/GPUFanControlState=1" -a "[fan:0]/GPUTargetFanSpeed=100"
+    xhost -si:localuser:root
